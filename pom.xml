@@ -6,7 +6,7 @@
     <version>1.0</version>
  
     <groupId>com.google.appengine.demos</groupId>
-    <artifactId>shardcounter</artifactId>
+    <artifactId>sharded-counters</artifactId>
  
     <properties>
         <appengine.app.version>1</appengine.app.version>
@@ -84,7 +84,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
-                    <archiveClasses>true</archiveClasses>
+                    <archiveClasses>false</archiveClasses>
                     <webResources>
                         <!-- in order to interpolate version from pom into appengine-web.xml -->
                         <resource>
@@ -99,6 +99,9 @@
                 <groupId>com.google.appengine</groupId>
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>1.7.6</version>
+                <configuration>                                     
+                    <enableJarClasses>true</enableJarClasses>
+                </configuration>
                 <executions>
                     <execution>
                         <phase>compile</phase>
@@ -107,6 +110,7 @@
                         </goals>
                     </execution>
                 </executions>
+
             </plugin>
         </plugins>
     </build>
